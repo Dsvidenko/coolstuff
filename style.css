@@ -118,3 +118,13 @@ h2{
 #reset:hover{
     background-color: rgb(170, 0, 0);
 }
+
+#troll{
+    position: absolute;
+    top: 55%;
+    background-color: white;
+}
+
+#troll:hover{
+    background-color: rgb(192, 192, 192);
+}
