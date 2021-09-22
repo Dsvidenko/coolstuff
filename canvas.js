@@ -28,13 +28,19 @@ $(document).ready(function(){
         
     })
     $("#amogus").click(function(){
-        IMG_SRC="'amogus.png'"
+        IMG_SRC="'amogus.png'";
         $("#square").attr("src", "amogus.png");
-    })
+    });
     $("#rectangol").click(function(){
-        IMG_SRC="'square.png'"
+        IMG_SRC="'square.png'";
         $("#square").attr("src", "square.png");
-    })
+    });
+
+    $("#troll").click(function(){
+        IMG_SRC="'troll.png'";
+        $("#square").attr("src", "troll.png");
+
+    });
 
 
     $("#gamewin").click(function(){
