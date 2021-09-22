@@ -36,7 +36,7 @@ button{
     background-color: white;
     width: 500px;
     height: 500px;
-    left: 15%;
+    left: 18%;
     top:30%;
     border:10px solid black;
 
@@ -76,7 +76,8 @@ h2{
 }
 
 .rtext{
-    padding-left: 60%;
+    padding-left: 70%;
+
 }
 
 .controls{
@@ -86,15 +87,34 @@ h2{
     padding-left: 1%;
     margin-left: 2%;
 }
+#amogus{
+    position: absolute;
+    top:35%;
+    background-color:rgb(221, 255, 27);
+}
+
+#amogus:hover{
+    background-color:rgb(177, 204, 23);
+}
 
 #rectangol{
     position: absolute;
-    top:50%;
+    top:45%;
     left: 0%;
+    background-color: rgb(170, 170, 170);
+}
+
+#rectangol:hover{
+    background-color: rgb(136, 136, 136);
 }
 
 #reset{
     position: absolute;
     top: 70%;
     left: 0%;
+    background-color: red;
+}
+
+#reset:hover{
+    background-color: rgb(170, 0, 0);
 }
