@@ -16,6 +16,7 @@ var md=false;
 $(document).ready(function(){
     topcorner=[$("#gamewin").position().left, $("#gamewin").position().top]
     $("#gamewin").append(square);
+    square.hide();
 
     $(document).on("mousemove", function(e){
         mousexraw=e.pageX;
@@ -53,6 +54,7 @@ $(document).ready(function(){
     $("#gamewin").on("mouseleave", function(){
         console.log("no longer following!");
         md=false;
+        square.hide();
         following=0;
     })
     $("#reset").click(function(){
@@ -111,6 +113,7 @@ function followMouse(mouseposa){
     
     }else{
         square.css({top: adj[1], left: adj[0]});
+        square.show();
         console.log("moved it");
     }
     
