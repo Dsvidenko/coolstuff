@@ -9,12 +9,15 @@ var mouseposa = [];
 var following=0;
 var topcorner = [0,0];
 var maxW=1;
-var IMAGE_WIDTH = 20;
+var IMAGE_WIDTH = 30;
 var IMG_SRC = "'square.png'";
 var md=false;
 
 $(document).ready(function(){
     topcorner=[$("#gamewin").position().left, $("#gamewin").position().top]
+    var slider = $("#sizeselect");
+    IMAGE_WIDTH=slider.val();
+    square.css({width: IMAGE_WIDTH});
     $("#gamewin").append(square);
     square.hide();
 
@@ -27,6 +30,16 @@ $(document).ready(function(){
 
         
     })
+    
+    
+    slider.on('input', function(){
+        IMAGE_WIDTH=slider.val();
+        console.log(IMAGE_WIDTH);
+        $("#square").css({width:IMAGE_WIDTH});
+        followMouse();
+    });
+
+
     $("#amogus").click(function(){
         IMG_SRC="'amogus.png'";
         $("#square").attr("src", "amogus.png");
@@ -79,9 +92,10 @@ function addimageatmouse(type){
     }else{
         var newimg = $("<img src = "+IMG_SRC+ "id = 'squareclone'/>");
     }
-    
-    newimg.css({maxWidth: IMAGE_WIDTH, position: "absolute", top:mouseposa[1]-IMAGE_WIDTH, left:mouseposa[0]-IMAGE_WIDTH});
-    
+    var pos = square.position();
+    newimg.css({width: IMAGE_WIDTH, position: "absolute", top: pos.top, left:pos.left});
+
+    console.log("MADE IMAGE WITH WIDTH "+newimg.maxWidth);
     if(!outofbounds(mouseposa)){
         $("#gamewin").append(newimg);
     }
@@ -113,7 +127,7 @@ function followMouse(mouseposa){
     console.log("square position: ("+pos.left+","+pos.top+")");
     console.log("mouse position: ("+mouseposa[0]+","+mouseposa[1]+")");
     //console.log("mouse position: ("+mousexraw+","+mouseyraw+")");
-    var adj = [mouseposa[0]-20, mouseposa[1]-20];
+    var adj = [mouseposa[0]-10-IMAGE_WIDTH/2, mouseposa[1]-10-IMAGE_WIDTH/2];
     if (outofbounds(mouseposa)){
         console.log("ouch");
     
@@ -143,4 +157,8 @@ function moveSquare(){
     console.log("("+pos.left+","+pos.top+")");
     $("#square").css({top: pos.top, left: pos.left+5});
     document.getElementById("square").style.left+=10;
+}
+
+function adjustmouse(coord){
+    return coord-10-IMAGE_WIDTH;
 }
